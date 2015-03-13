@@ -1,33 +1,25 @@
-
+import java.util.HashMap;
 /**
- * Write a description of class Bocateria here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Clase Bocateria.
+ * @author (Josu) 
+ * @version (13/03/2015)
  */
 public class Bocateria
 {
-    // instance variables - replace the example below with your own
-    private int x;
+   private Cliente primeraPersonaEncola;
+   private int facturacionActual;
+   private HashMap<Integer, Cliente> clientesDespachados;
+   private static final int PRECIO_BOCADILLO = 20;
 
     /**
-     * Constructor for objects of class Bocateria
+     * Constructor de la clase Bocateria
      */
     public Bocateria()
     {
-        // initialise instance variables
-        x = 0;
+        primeraPersonaEncola = new Cliente();
+        facturacionActual = 0;
+        clientesDespachados = new HashMap<>();
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
-    }
+    
 }
