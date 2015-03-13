@@ -27,15 +27,22 @@ public class Bocateria
      */
     public void llegaNuevoClienteALaCola(int numeroDeBocadillos) 
     {        
-        if (primeraPersonaEnCola.getSiguienteEnLaCola(primeraPersonaEnCola) == null) 
+        Cliente temp = new Cliente(0);
+        Cliente temp2 = new Cliente(0);
+        if (primeraPersonaEnCola == null) 
         {
             primeraPersonaEnCola = new Cliente(numeroDeBocadillos);
         }
+        else if (primeraPersonaEnCola.getSiguienteEnLaCola(primeraPersonaEnCola) == null)
+        {
+            temp = new Cliente(numeroDeBocadillos);
+            primeraPersonaEnCola.setSiguienteEnLaCola(temp);            
+        }
         else
         {
-            Cliente temp = new Cliente(numeroDeBocadillos);
-            primeraPersonaEnCola.setSiguienteEnLaCola(temp);
-            primeraPersonaEnCola = temp;
+            temp2 = new Cliente(numeroDeBocadillos);
+            temp2.setSiguienteEnLaCola(temp);
+            temp = temp2;
         }        
     }
     
@@ -44,13 +51,13 @@ public class Bocateria
      */
     public void visualizaDatosClientesEnCola() 
     {
-        while (primeraPersonaEnCola.getSiguienteEnLaCola(primeraPersonaEnCola) != null)
-        {
+        //         while (primeraPersonaEnCola.getSiguienteEnLaCola(primeraPersonaEnCola) != primeraPersonaEnCola)
+        //         {
             System.out.println("Cliente " + primeraPersonaEnCola.getNumeroCliente() + ": "
                            + primeraPersonaEnCola.getNumeroDeBocadillos() + " bocadillo/s (" 
                            + (primeraPersonaEnCola.getNumeroDeBocadillos() * PRECIO_BOCADILLO) + ")");
-        }
-        System.out.println(primeraPersonaEnCola.getSiguienteEnLaCola(primeraPersonaEnCola));
+        //         }
+            System.out.println(primeraPersonaEnCola.getSiguienteEnLaCola(primeraPersonaEnCola));
     }
     
     /**
